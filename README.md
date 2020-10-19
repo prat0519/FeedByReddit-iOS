@@ -12,18 +12,18 @@ FeedByReddit is written with Swift 5.0 and Xcode 12.0.1
 
 Technology Used
 - uses swift 
-- uses swiftUI for interface builing
+- uses swiftUI for user interface builing
 - uses swift combine for network request
 
 1.  Code Architecture (MVVM) :
    
    #List Screen :-
    
-   List screen shows the all the feed retrieve through reddit client API. It shows all the details about the particular post like subreddit, author name, title, image. At the bottom of each item view, other meta data like comment, score and post time are shown.
+   List screen shows all the feed retrieve through reddit client API. It shows all the details about the particular post like subreddit, author name, title, image etc. In the lowe section of each item view, other meta data like comment, score and post time are shown.
 
-   RedditFeedView is the root view to show content. RedditFeedListContainer communicated with the view model to load data. View model observe the data from Api services and update the model, also binds the data to view with help of RedditFeedListContainer to load list view. Each item in the list is drawn based on feeds array. 
+   RedditFeedView is the root view to show content. RedditFeedListContainer communicated with the view model to load data. View model observe the data from Api services and update the model, also binds the data to view with help of RedditFeedListContainer to load list view. Each item in the list is drawn based on based of  each feed data. 
 
-   View model fetch the feeds with RedditFeedFetchable dependency. Network request and parsing are down with Combine framework using subscribers and publishers. For image loading, RedditFeedImageLoader is used. RedditFeedAsyncImage is the view to load image. It place a call to image loader on each item view and load downloaded images. 
+   View model fetch the feeds with RedditFeedFetchable dependency. Network request and parsing are down with Combine framework using subscribers and publishers. For image loading, RedditFeedImageLoader is used. RedditFeedAsyncImage is the view to load image. It place a call to image loader on each item view and load images asynchronously. 
 
    
 2. UI Part: 
